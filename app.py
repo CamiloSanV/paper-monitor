@@ -17,7 +17,7 @@ def load_models():
     )
     return embedding_model, vectorizer
 
-@st.cache_data(show_spinner="Fetching papers...")
+@st.cache_data(show_spinner="Fetching papers...", ttl=86400)
 def fetch_papers(query, max_results=100):
     client = arxiv.Client(
         page_size=50,
